@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yahtzee Game
 
-## Getting Started
+Este proyecto es una implementación del clásico juego de dados **Yahtzee** desarrollado en React. Permite a dos jugadores competir lanzando dados, bloqueando valores y acumulando puntos según las reglas del juego.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Lanzamiento de dados**: Los jugadores pueden lanzar hasta 5 dados por turno.
+- **Bloqueo de dados**: Los jugadores pueden bloquear dados para conservar sus valores en turnos posteriores.
+- **Puntuación automática**: El sistema calcula automáticamente las puntuaciones parciales y totales.
+- **Cambio de turno**: Los jugadores alternan turnos después de seleccionar una categoría para puntuar.
+- **Finalización del juego**: El juego termina después de 13 rondas por jugador, mostrando las puntuaciones finales.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+yatzhee ├── app │ ├── page.js # Componente principal del juego │ ├── page.module.css # Estilos del juego │ └── components │ └── RollsInfo.js # Componente para mostrar información de los lanzamientos ├── utils │ ├── getDieValue.js # Función para generar valores aleatorios de los dados │ └── rollesPointsRules.js # Reglas de puntuación del juego └── README.md # Documentación del proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación
 
-## Learn More
+Instala las dependencias:
+Inicia el servidor de desarrollo:
 
-To learn more about Next.js, take a look at the following resources:
+## Cómo Jugar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cada jugador tiene 13 rondas para acumular puntos.
+En cada turno, un jugador puede lanzar los dados hasta 3 veces.
+Los dados se pueden bloquear para conservar sus valores.
+Después de lanzar, el jugador debe seleccionar una categoría para puntuar.
+El juego termina cuando ambos jugadores han completado sus 13 rondas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Reglas de Puntuación
 
-## Deploy on Vercel
+Suma de unos, doses, treses, etc.: Suma los valores de los dados que coincidan con la categoría.
+Three of a Kind: Suma de todos los dados si hay al menos tres iguales.
+Four of a Kind: Suma de todos los dados si hay al menos cuatro iguales.
+Full House: 25 puntos si hay un trío y una pareja.
+Small Straight: 30 puntos si hay una secuencia de 4 números consecutivos.
+Large Straight: 40 puntos si hay una secuencia de 5 números consecutivos.
+Chance: Suma de todos los dados.
+Yahtzee: 50 puntos si los 5 dados son iguales.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologías Utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+React: Biblioteca para construir la interfaz de usuario.
+CSS Modules: Para estilos encapsulados.
+JavaScript: Lógica del juego y manipulación de datos.
